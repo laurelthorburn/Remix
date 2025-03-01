@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,42 +8,40 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+const content = {
+  title: "Hi, I'm Laurel.",
+  description: (link: React.ReactNode) => (
+    <>I&apos;m a front-end developer at {link}.</>
+  ),
+  Shopify: "Shopify",
+};
+
 export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
+      <div className="flex flex-col items-center justify-center h-full">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Hi, I&apos;m Laurel.
+            {content.title}
           </h1>
-
-        </header>
-        {/* <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
-            What&apos;s next?
+          <p className="text-center text-gray-600 dark:text-gray-400">
+            {content.description(
+              <Link
+                to="https://shopify.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500"
+              >
+                {content.Shopify}
+              </Link>
+            )}
           </p>
-          <ul>
-            {resources.map(({ href, text, icon }) => (
-              <li key={href}>
-                <a
-                  className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {icon}
-                  {text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav> */}
+        </header>
       </div>
     </div>
   );
 }
 
-// const resources = [
 //   {
 //     href: "https://remix.run/start/quickstart",
 //     text: "Quick Start (5 min)",
