@@ -1,5 +1,13 @@
 import { Link, NavLink, Outlet } from "@remix-run/react";
 
+const content = {
+  home: "Home",
+  projects: "Projects",
+  experience: "Experience",
+  github: "Github",
+  linkedin: "LinkedIn",
+};
+
 export default function Layout() {
   return (
     <>
@@ -7,19 +15,19 @@ export default function Layout() {
         <nav className="p-4">
           <ul className="w-full flex flex-row gap-5 text-lg lg:text-2xl font-bold">
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">{content.home}</NavLink>
             </li>
             <li className="ml-auto">
-              <NavLink to="/demos">Demos</NavLink>
+              <NavLink to="/projects">{content.projects}</NavLink>
             </li>
             <li>
-              <NavLink to="/resume">Resume</NavLink>
+              <NavLink to="/experience">{content.experience}</NavLink>
             </li>
             <li>
-              <Link to="https://github.com/laurelthorburn" target="_blank" rel="noopener noreferrer">Github</Link>
+              <Link to="https://github.com/laurelthorburn" target="_blank" rel="noopener noreferrer">{content.github}</Link>
             </li>
             <li>
-              <Link to="https://www.linkedin.com/in/laurel-king-651592219/" target="_blank" rel="noopener noreferrer">LinkedIn</Link>
+              <Link to="https://www.linkedin.com/in/laurel-king-651592219/" target="_blank" rel="noopener noreferrer">{content.linkedin}</Link>
             </li>
           </ul>
         </nav>

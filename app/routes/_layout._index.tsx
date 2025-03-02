@@ -10,7 +10,7 @@ const content = {
 
 export default function AboutMe() {
   return (
-    <div className="flex h-screen items-center justify-center">
+    // <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center justify-center h-full">
         <header className="flex flex-col items-center gap-2">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
@@ -30,6 +30,6 @@ export default function AboutMe() {
           </p>
         </header>
       </div>
-    </div>
+    // </div>
   );
 }
